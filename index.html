@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vincenzo Claudio Piscopo · I dati della Sicilia, con le fonti</title>
+<meta name="description" content="Dati e fonti dietro ai video di Vincenzo Claudio Piscopo su Palermo e la Sicilia. Ogni numero si può controllare.">
+<link rel="stylesheet" href="assets/site.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<div class="wrap top"><a class="brand" href="./"><span class="sq"></span>Vincenzo Claudio Piscopo</a>
+<nav><a href="#dati">Dati</a><a href="https://www.instagram.com/piscopo.ora/" target="_blank" rel="noopener">Instagram</a><button class="tbtn" onclick="toggleTheme()">Tema</button></nav></div>
+<main>
+ <section class="hero wrap">
+  <div class="label"><span class="sq"></span>Dati e fonti</div>
+  <h1>La Sicilia in numeri. <span class="hl">Controllabili.</span></h1>
+  <p>Qui trovi i dati che uso nei miei video, con ogni fonte linkata. Se un numero è sbagliato, scrivimi: lo correggo e lo segnalo.</p>
+  <div class="role">Vincenzo Claudio Piscopo · Ingegnere aerospaziale · Vice Coordinatore Regionale ORA! Sicilia</div>
+ </section>
+ <section class="wrap section-t" id="dati">
+  <div class="label"><span class="sq"></span>Approfondimenti</div>
+  <div class="cards" id="cards"></div>
+ </section>
+</main>
+<footer><div class="wrap">Vincenzo Claudio Piscopo · Ogni dato ha la sua fonte.</div></footer>
+<script>
+window.toggleTheme=()=>{const t=document.documentElement.dataset.theme==='scuro'?'chiaro':'scuro';document.documentElement.dataset.theme=t;try{localStorage.setItem('tema',t)}catch(e){}};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+fetch('dati/index.json',{cache:'no-cache'}).then(r=>r.json()).then(l=>{
+ l.sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+ document.getElementById('cards').innerHTML=l.map(d=>`<a class="card" href="dati/${esc(d.slug)}/">
+  <div class="label">${esc(d.area||'Sicilia')} · ${d.date?new Date(d.date).toLocaleDateString('it-IT',{day:'numeric',month:'short',year:'numeric'}):''}</div>
+  <h3>${esc(d.title)}</h3><p>${esc(d.lead||'')}</p>
+  ${d.headline?`<div class="big">${esc(d.headline.value)}</div><p>${esc(d.headline.text)}</p>`:''}</a>`).join('')||'<p>In arrivo.</p>';
+}).catch(()=>{document.getElementById('cards').innerHTML='<p>In arrivo.</p>'});
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+ "slug":"demo-crisi-idrica",
+ "title":"Crisi idrica: l'acqua che [perdiamo]",
+ "lead":"PAGINA DI PROVA CON DATI FINTI. Serve solo a vedere come apparirà una dashboard.",
+ "area":"Sicilia",
+ "date":"2026-11-21",
+ "theme":"scuro",
+ "video":"",
+ "headline":{"value":"52%","text":"dell'acqua persa in rete"},
+ "charts":[
+  {"id":"perdite","type":"bigstat","label":"Perdite idriche","value":"52","unit":"%","title":"Più di metà dell'acqua si perde [prima] di arrivare a casa","note":"Su 100 litri immessi in rete, ne arrivano meno di 48.","src":[1]},
+  {"id":"confronto","type":"split","label":"Sicilia contro Italia","title":"Stesso tubo, [risultati] diversi","left":{"value":"52,5%","caption":"perdite in Sicilia","highlight":true},"right":{"value":"42,4%","caption":"media italiana"},"src":[1]},
+  {"id":"province","type":"bars","label":"Province","title":"Perdite per provincia","items":[{"name":"Siracusa","value":67},{"name":"Catania","value":60},{"name":"Palermo","value":55,"highlight":true},{"name":"Messina","value":50},{"name":"Agrigento","value":49},{"name":"Trapani","value":47},{"name":"Enna","value":45},{"name":"Ragusa","value":40},{"name":"Caltanissetta","value":38}],"src":[2]},
+  {"id":"andamento","type":"trend","label":"Andamento","title":"Le perdite crescono da {dieci} anni","points":[{"x":"2015","y":45.6},{"x":"2018","y":46.6},{"x":"2020","y":50.5},{"x":"2022","y":51.6},{"x":"2024","y":52.5}],"src":[1]},
+  {"id":"pnrr","type":"donut","label":"Fondi PNRR","value":23,"title":"Solo una parte dei fondi è [spesa]","note":"Il resto è ancora fermo.","src":[3]},
+  {"id":"cronologia","type":"timeline","label":"Cronologia","title":"Annunci e ritardi","events":[{"date":"2019","text":"Piano annunciato"},{"date":"2021","text":"Fondi stanziati"},{"date":"2023","text":"Gara bandita"},{"date":"2024","text":"Emergenza siccità","highlight":true},{"date":"2026","text":"Cantieri ancora aperti"}],"src":[3]},
+  {"id":"proposte","type":"list","label":"Le proposte","title":"Tre cose [misurabili]","items":["Sensori sulla rete e dati pubblici ogni mese","Un gestore unico con obiettivi di perdita","Fondi solo a chi riduce le perdite"]}
+ ],
+ "sources":[
+  {"ente":"Fonte demo A","titolo":"Documento di esempio","anno":"2024","url":"https://example.org"},
+  {"ente":"Fonte demo B","titolo":"Documento di esempio","anno":"2024","url":"https://example.org"},
+  {"ente":"Fonte demo C","titolo":"Documento di esempio","anno":"2026","url":"https://example.org","nota":"Dato provvisorio"}
+ ]
+}
