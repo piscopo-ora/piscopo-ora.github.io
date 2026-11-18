@@ -165,7 +165,7 @@
   async function main() {
     const d = await (await fetch('data.json', { cache: 'no-cache' })).json();
     document.documentElement.dataset.theme = saved || d.theme || 'chiaro';
-    document.title = `${d.title.replace(/[\[\]{}]/g, '')} · Dati e fonti · Vincenzo Claudio Piscopo`;
+    document.title = `piscopo.ora · ${d.title.replace(/[\[\]{}]/g, '')}`;
     const desc = document.querySelector('meta[name="description"]'); if (desc) desc.content = d.lead || '';
     const S = d.sources || [], charts = d.charts || [];
     const dt = d.date ? new Date(d.date).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
