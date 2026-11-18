@@ -10,3 +10,5 @@ Sito personale di Vincenzo Claudio Piscopo: dati e fonti dietro ai video.
 - Social in home e nel piè di pagina: modificali in `index.html` e `dati/_template.html` (e nelle pagine già create).
 
 Nuova dashboard: crea la cartella, copia il template, scrivi `data.json` (formato di esempio, con dati finti, in `dati/_esempio-data.json`), aggiungi una voce in `dati/index.json`.
+
+- Dopo una modifica a `assets/site.css` o `assets/dashboard.js`, aggiorna il numero di versione (`?v=...`) nei link di `index.html`, `dati/_template.html` e delle pagine in `dati/`, così i browser non usano la copia vecchia.
