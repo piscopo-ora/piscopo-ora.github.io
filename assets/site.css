@@ -23,7 +23,9 @@ a{color:inherit}
 
 /* header */
 .top{display:flex;justify-content:space-between;align-items:center;padding-top:22px;padding-bottom:22px;border-bottom:1px solid var(--line)}
-.brand{font-weight:700;text-decoration:none;letter-spacing:.01em}
+.brand{font-weight:700;text-decoration:none;letter-spacing:.01em;display:inline-flex;align-items:center;gap:12px}
+.brand-ico{width:34px;height:34px;display:block;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.brand:hover .brand-ico{transform:rotate(-6deg) scale(1.08)}
 .top nav a{margin-left:22px;text-decoration:none;color:var(--sub);font-weight:500}
 .top nav a:hover{color:var(--ink)}
 .tbtn{background:none;border:1px solid var(--line);color:var(--sub);font:inherit;font-size:14px;padding:6px 12px;cursor:pointer;margin-left:18px}
