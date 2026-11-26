@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T09:54:23Z",
+ "updated": "2026-11-26T09:55:37Z",
  "items": [
   {
    "src": "youtube",
@@ -18,6 +18,33 @@
    "date": "2026-07-21T11:14:30Z",
    "thumb": "https://i.ytimg.com/vi/hTQcI2DIMvY/hqdefault.jpg",
    "text": "Uno su quattro giovani siciliani non studia, non lavora, non si forma. Nella Sicilia orientale si arriva al 40%. Dal 2002 al 2024 quasi 350mila laureati under 35 hanno lasciato il Sud per il Centro-Nord. Sicilia e…"
+  },
+  {
+   "src": "substack",
+   "kind": "Articolo",
+   "title": "Sanità siciliana: il divario tra Nord e Sud cresce ancora",
+   "url": "https://vincenzoclaudiopiscopo.substack.com/p/sanita-siciliana-il-divario-tra-nord",
+   "date": "2026-05-17T18:48:26Z",
+   "thumb": "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMDAzMzh8MHwxfHNlYXJjaHwxfHxzYW5pdCVDMyVBMHxlbnwwfHx8fDE3NzkwNDM0OTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+   "text": "Oltre 100 milioni di euro spesi per quasi 30.000 siciliani costretti a curarsi fuori regione."
+  },
+  {
+   "src": "substack",
+   "kind": "Articolo",
+   "title": "La Sicilia assume, ma i giovani fuggono",
+   "url": "https://vincenzoclaudiopiscopo.substack.com/p/la-sicilia-assume-ma-i-giovani-fuggono",
+   "date": "2026-05-04T10:31:21Z",
+   "thumb": "https://substackcdn.com/image/fetch/$s_!qJLd!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0f95179c-3537-4479-8405-478045c3347c_1080x1350.png",
+   "text": "Quando il dato nasconde il problema"
+  },
+  {
+   "src": "substack",
+   "kind": "Articolo",
+   "title": "PNRR in Sicilia: la differenza tra spendere e certificare vale 1,3 miliardi",
+   "url": "https://vincenzoclaudiopiscopo.substack.com/p/pnrr-in-sicilia-la-differenza-tra",
+   "date": "2026-04-28T10:22:18Z",
+   "thumb": "https://substackcdn.com/image/fetch/$s_!r5uS!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1b7f4b80-e6ac-419e-bc2b-515afb83623c_1080x1350.png",
+   "text": "C’è un numero che circola spesso sul PNRR in Sicilia: la Regione ha speso solo un terzo dei fondi assegnati."
   }
  ]
 }
