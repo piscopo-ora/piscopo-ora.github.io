@@ -30,6 +30,18 @@ a{color:inherit}
 .top nav a{margin-left:22px;text-decoration:none;color:var(--sub);font-weight:500}
 .top nav a:hover{color:var(--ink)}
 .tbtn{background:none;border:1px solid var(--line);color:var(--sub);font:inherit;font-size:14px;padding:6px 12px;cursor:pointer;margin-left:18px}
+/* menu a tendina Social */
+.dd{position:relative;margin-left:22px}
+.ddbtn{background:none;border:0;font:inherit;font-weight:500;color:var(--sub);cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:0}
+.ddbtn:after{content:'';width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.ddbtn[aria-expanded="true"]:after{transform:translateY(2px) rotate(-135deg)}
+.ddbtn:hover,.ddbtn[aria-expanded="true"]{color:var(--ink)}
+.ddmenu{position:absolute;right:0;top:calc(100% + 14px);min-width:190px;background:var(--panel);border:1px solid var(--line);box-shadow:0 12px 32px rgba(0,0,0,.18);padding:6px;z-index:20;animation:ddin .18s var(--ease,ease)}
+.ddmenu[hidden]{display:none}
+.top nav .ddmenu a{display:flex;align-items:center;gap:10px;margin:0;padding:9px 12px;font-size:15px;font-weight:600;color:var(--sub)}
+.top nav .ddmenu a:before{content:'';width:8px;height:8px;background:var(--yel);flex:none}
+.top nav .ddmenu a:hover{background:var(--track);color:var(--ink)}
+@keyframes ddin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 
 /* home */
 .hero{padding-top:96px;padding-bottom:64px}
@@ -145,7 +157,7 @@ body.video .vhint{display:block}
   .split{grid-template-columns:1fr}.split .vs{display:none}
   .tl{grid-auto-flow:row}.tl:before{display:none}
   .bar{grid-template-columns:90px 1fr 70px;gap:10px}.bar .v{font-size:18px}
-  .top nav a{margin-left:14px;font-size:15px}.top nav a[href*="video"],.top nav a[href="#social"]{display:none}
+  .top nav a{margin-left:14px;font-size:15px}.top nav a[href*="video"]{display:none}.dd{margin-left:14px}.ddbtn{font-size:15px}
   .tbtn{margin-left:12px;font-size:13px;padding:5px 9px}
   .brand{gap:9px;font-size:16px}.brand-ico{width:28px;height:28px}
 }
