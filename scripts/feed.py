@@ -26,7 +26,12 @@ NS = {
 
 
 def fetch(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (piscopo-ora feed)"})
+    req = urllib.request.Request(url, headers={
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+                      "(KHTML, like Gecko) Chrome/131.0 Safari/537.36",
+        "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+        "Accept-Language": "it-IT,it;q=0.9,en;q=0.8",
+    })
     with urllib.request.urlopen(req, timeout=30) as r:
         return r.read()
 
