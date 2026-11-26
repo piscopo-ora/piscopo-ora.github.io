@@ -1,0 +1,36 @@
+name: Aggiorna ultimi contenuti
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # ogni ora
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["scripts/feed.py", ".github/workflows/feed.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: feed
+  cancel-in-progress: false
+
+jobs:
+  feed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/feed.py
+      - name: Salva se cambiato
+        run: |
+          if git diff --quiet -- dati/feed.json && git ls-files --error-unmatch dati/feed.json >/dev/null 2>&1; then
+            echo "Niente da salvare"; exit 0
+          fi
+          git config user.name "piscopo-ora-bot"
+          git config user.email "piscopo-ora@users.noreply.github.com"
+          git add dati/feed.json
+          git commit -m "Ultimi contenuti aggiornati"
+          git push

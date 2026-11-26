@@ -5,20 +5,24 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>piscopo.ora</title>
 <meta name="description" content="Storia, analisi e dati su Palermo e la Sicilia, a cura di Vincenzo Claudio Piscopo.">
-<link rel="icon" href="assets/favicon.svg?v=202611261000" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.svg?v=202611261100" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#111110">
-<link rel="stylesheet" href="assets/site.css?v=202611261000">
+<link rel="stylesheet" href="assets/site.css?v=202611261100">
 <script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
-<div class="wrap top"><a class="brand" href="./"><img class="brand-ico" src="assets/favicon.svg?v=202611261000" alt="" width="34" height="34">piscopo.ora</a>
+<div class="wrap top"><a class="brand" href="./"><img class="brand-ico" src="assets/favicon.svg?v=202611261100" alt="" width="34" height="34">piscopo.ora</a>
 <nav><div class="dd"><button class="ddbtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="ddsocial">Social</button><div class="ddmenu" id="ddsocial" hidden><a href="https://www.instagram.com/piscopo.ora/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@piscopo.ora" target="_blank" rel="noopener">TikTok</a><a href="https://www.facebook.com/orapiscopo" target="_blank" rel="noopener">Facebook</a><a href="https://www.threads.com/@piscopo.ora" target="_blank" rel="noopener">Threads</a><a href="https://substack.com/@vincenzoclaudiopiscopo" target="_blank" rel="noopener">Substack</a><a href="https://www.youtube.com/@VincenzoClaudio_Piscopo" target="_blank" rel="noopener">YouTube</a><a href="https://x.com/piscopoora" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/in/vincenzoclaudiopiscopo" target="_blank" rel="noopener">LinkedIn</a></div></div><a href="https://piscopovincenzoclaudio.github.io" target="_blank" rel="noopener">Chi sono</a><button class="tbtn" onclick="toggleTheme()">Tema</button></nav></div>
 <main>
  <section class="hero wrap">
   <h1>La Sicilia, raccontata da vicino.</h1>
   <p>Per capire insieme quest'isola complessa, al centro del Mediterraneo.</p>
+ </section>
+ <section class="wrap section-t" id="ultimi" hidden>
+  <div class="label"><span class="sq"></span>Ultimi contenuti</div>
+  <div class="feed" id="feed"></div>
  </section>
  <section class="wrap section-t" id="dati">
   <div class="label"><span class="sq"></span>Approfondimenti</div>
@@ -30,6 +34,15 @@
 (()=>{const b=document.querySelector('.ddbtn'),m=document.getElementById('ddsocial');const set=o=>{m.hidden=!o;b.setAttribute('aria-expanded',o)};b.addEventListener('click',e=>{e.stopPropagation();set(m.hidden)});document.addEventListener('click',e=>{if(!m.contains(e.target))set(false)});document.addEventListener('keydown',e=>{if(e.key==='Escape'){set(false);b.focus()}})})();
 window.toggleTheme=()=>{const t=document.documentElement.dataset.theme==='scuro'?'chiaro':'scuro';document.documentElement.dataset.theme=t;try{localStorage.setItem('tema',t)}catch(e){}};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+fetch('dati/feed.json',{cache:'no-cache'}).then(r=>r.json()).then(f=>{
+ const it=(f.items||[]).slice(0,6);if(!it.length)return;
+ const nomi={youtube:'YouTube',substack:'Substack'};
+ document.getElementById('feed').innerHTML=it.map(i=>`<a class="fcard" href="${esc(i.url)}" target="_blank" rel="noopener">
+  ${i.thumb?`<div class="fimg"><img src="${esc(i.thumb)}" alt="" loading="lazy" onerror="this.parentNode.remove()"></div>`:''}
+  <div class="fbody"><div class="label">${esc(nomi[i.src]||i.src)} · ${esc(i.kind||'')} · ${new Date(i.date).toLocaleDateString('it-IT',{day:'numeric',month:'short'})}</div>
+  <h3>${esc(i.title)}</h3>${i.text?`<p>${esc(i.text)}</p>`:''}</div></a>`).join('');
+ document.getElementById('ultimi').hidden=false;
+}).catch(()=>{});
 fetch('dati/index.json',{cache:'no-cache'}).then(r=>r.json()).then(l=>{
  l.sort((a,b)=>(b.date||'').localeCompare(a.date||''));
  document.getElementById('cards').innerHTML=l.map(d=>`<a class="card" href="dati/${esc(d.slug)}/">
